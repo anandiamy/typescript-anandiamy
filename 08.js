@@ -1,37 +1,34 @@
-class Str {
-    static lower(value: string): string {
+var Str = /** @class */ (function () {
+    function Str() {
+    }
+    Str.lower = function (value) {
         return value.toLowerCase();
-    }
-
-    static upper(value: string): string {
+    };
+    Str.upper = function (value) {
         return value.toUpperCase();
-    }
-
-    static capitalize(value: string): string {
-        return value.replace(/\w\S*/g, function(txt){
+    };
+    Str.capitalize = function (value) {
+        return value.replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
-    }
-
-    static reverse(value: string): string {
+    };
+    Str.reverse = function (value) {
         return value.split('').reverse().join('');
-    }
-
-    static contains(value: string, search: string | Array<string>): boolean {
+    };
+    Str.contains = function (value, search) {
         if (typeof search === "string") {
             return value.split(' ').indexOf(search) > -1;
         }
-
-        for (let item of search) {
+        for (var _i = 0, search_1 = search; _i < search_1.length; _i++) {
+            var item = search_1[_i];
             if (value.split(' ').indexOf(item) > -1) {
                 return true;
             }
         }
-
         return false;
-    }
-}
-
+    };
+    return Str;
+}());
 console.log(Str.lower('MAKAN'));
 console.log(Str.upper('malam'));
 console.log(Str.capitalize('saya ingin makan'));
